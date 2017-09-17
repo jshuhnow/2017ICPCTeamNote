@@ -21,4 +21,4 @@
  * 10^18
  */
 
- 
+// Area of Convex Hull = 1/2 * abs( sum ( x1*y2-y1*x2)) 
