@@ -1,6 +1,21 @@
 typedef long long ll;
 
-ll init(vector<ll> &v, vector<ll> &tree, int node, int start, int end) {
+// h : 2^h>N 중 가장 작은 h, tree_size : Segment Tree의 총 노드 수
+// tree : Segment Tree, v : 입력 배열 -> tree size : 4 * N
+// node : Segment Tree에서 현재 노드 번호( 1 - base )
+// start : 현재 노드가 포함하는 범위의 시작, end : 현재 노드가 포함하는 범위의 끝 ( 1 - base )
+// left : update하는 구간의 시작, right : update하는 구간의 끝 ( 1 - base )
+
+int get_height(int n) {
+	int cnt = 0, t = 1;
+	while (t < n) {
+		cnt++;
+		t *= 2;
+	}
+	return cnt;
+}
+
+long long init(vector<long long> &v, vector<long long> &tree, int node, int start, int end) {
 	if (start == end) {
 		return tree[node] = v[start];
 	}
@@ -9,7 +24,7 @@ ll init(vector<ll> &v, vector<ll> &tree, int node, int start, int end) {
 	}
 }
 
-void update_lazy(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end) {
+void update_lazy(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end) {
 	if (lazy[node] != 0) {
 		tree[node] += (end - start + 1)*lazy[node];
 		if (start != end) {
@@ -20,12 +35,11 @@ void update_lazy(vector<ll> &tree, vector<ll> &lazy, int node, int start, int en
 	}
 }
 
-void update(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end, int left, int right, ll val) {
+void update(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end, int left, int right, long long val) {
 	update_lazy(tree, lazy, node, start, end);
 	if (left > end || right < start) {
 		return;
 	}
-
 	if (left <= start && end <= right) {
 		tree[node] += (end - start + 1)*val;
 		if (start != end) {
@@ -40,7 +54,7 @@ void update(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end, in
 	tree[node] = tree[node * 2] + tree[node * 2 + 1];
 }
 
-ll sum(vector<ll> &tree, vector<ll> &lazy, int node, int start, int end, int left, int right) {
+long long sum(vector<long long> &tree, vector<long long> &lazy, int node, int start, int end, int left, int right) {
 	update_lazy(tree, lazy, node, start, end);
 	if (left > end || right < start) {
 		return 0;
