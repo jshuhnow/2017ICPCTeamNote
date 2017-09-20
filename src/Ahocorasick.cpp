@@ -1,7 +1,7 @@
 #define ll long long
 const int ALPHABETS = 27;
 int toNum(char c) {
-	return c -'a';'
+	return c -'a';
 }
 struct node {
 	node *children[ALPHABETS];
