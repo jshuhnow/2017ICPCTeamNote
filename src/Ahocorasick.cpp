@@ -56,3 +56,26 @@ int aho(const string &s, node *root) {
  	}
 	return ret;
 }
+
+// example of main
+// return the number of string including { root } in dna
+
+node *root = new node();
+string dna, marker;
+cin >> dna >> marker;
+list<string> lis;
+for (int i = 0; i< m; i++)
+	for (int j = i; j < m; j++) {
+		reverse(marker.begin() + i, marker.begin() + j + 1);
+		lis.push_back(marker);
+		reverse(marker.begin() + i, marker.begin() + j + 1);
+	}
+
+unique(lis.begin(), lis.end());
+for (auto i : lis){
+	root->insert(i.c_str());
+}
+FFC(root);
+// RETURN //
+return aho(dna, root);
+*/
