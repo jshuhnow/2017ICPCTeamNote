@@ -15,7 +15,7 @@ struct node {
  		{
  			int next = toNum(*key);
  			if (children[next] == NULL)
- 			children[next] = new node();
+ 				children[next] = new node();
  			children[next]->insert(key + 1);
  		}
  	}
