@@ -1,3 +1,6 @@
+// O(ElogV)
+
+
 #define MX 10001
 int p[MX], rank[MX];
 inline int find(short x){
