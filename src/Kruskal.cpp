@@ -1,6 +1,8 @@
 // O(ElogV)
 // Note that the optimum is NOT UNIQUE
-
+// For minimum SUBGRAPH graph problem, note that it may form cycle.
+// For minimum FOREST problem, do it until # of connected components woulud become # of forests
+// Minimax path problem (path between i and j) can be solved with MST!
 #define MX 10001
 int p[MX], rank[MX];
 inline int find(short x){
