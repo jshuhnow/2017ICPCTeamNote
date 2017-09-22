@@ -1,3 +1,5 @@
+// O(V+E);
+
 int dfs(int n)
 {
 	vis[n]=++curr;
