@@ -1,5 +1,5 @@
 // O(ElogV)
-
+// Note that the optimum is NOT UNIQUE
 
 #define MX 10001
 int p[MX], rank[MX];
