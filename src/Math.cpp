@@ -21,4 +21,6 @@
  * 10^18
  */
 
-// Area of Convex Hull = 1/2 * abs( sum ( x1*y2-y1*x2)) 
+// Area of Convex Hull = 1/2 * abs( sum ( x1*y2-y1*x2))
+//
+//  Catalan Number Cat(N) = 2N C N / (N+1) , Cat(N+1) = (2N+2)(2N+1)/(N+2)(N+1) * Cat(N) 
