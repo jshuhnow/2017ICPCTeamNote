@@ -290,3 +290,8 @@ T abs(T a)
 {
     return (a >= 0) ? a : -a;
 }
+
+// Lucas Theorem
+//
+// n = sigma n_i p^i, k = sigma k_i p^i
+// n C k === pi n_i C k_i  (mod p)
