@@ -6,7 +6,7 @@
  *
  * actual flow - do maxflow(oldsrc, olddst)
  */
-// O(V^2E) / O( min( V^(2/3)E, E^(3/2)) with UNIT capacity!
+// O(min(fE, V^2E)) / O( min( V^(2/3)E, E^(3/2)) with UNIT capacity!
 struct Dinic {
 	typedef long long flow_t;
 	struct Edge {
@@ -72,9 +72,9 @@ struct Dinic {
 	}
 };
 
+// O(min(fE, VE^2))
 struct EdmondKarp {
 	const int INF = 987654321;
-
 
 	int min(int a, int b) {
 	    return a<b? a:b;
@@ -139,7 +139,7 @@ struct EdmondKarp {
 	    printf("%d\n", MaxFlow(cap,graph, src, dst));
 	*/
 };
-
+// O(fE)
 struct FordFulkerson {
 	#define V 6
 
