@@ -1,3 +1,5 @@
+// O(V+E)
+
 vector<pii> edges, vector<int> vertexes;
 vector<int> dfs_num, dfs_low, dfs_parent; vector<bool> chk;
 const int UNVISITED = -1;
