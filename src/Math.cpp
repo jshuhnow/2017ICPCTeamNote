@@ -295,3 +295,31 @@ T abs(T a)
 //
 // n = sigma n_i p^i, k = sigma k_i p^i
 // n C k === pi n_i C k_i  (mod p)
+vector<ll> get_digits(ll n, ll b){
+    vector<ll> d;
+    while(n){
+        d.push_back(n%b);
+        n /= b;
+    }
+    return d;
+}
+ll lucas_theorem(ll n, ll k, ll p){
+    ll ret = 1;
+    vector<ll> nd = get_digits(n, p), kd = get_digits(k, p);
+    for(int i = 0 ; i < max(nd.size(), kd.size()); i++){
+        ll nn, kk;
+        if(i < nd.size())
+            nn = nd[i];
+        else
+            nn = 0;
+        if(i < kd.size())
+            kk = kd[i];
+        else
+            kk = 0;
+        
+        if(nn < kk)
+            return 0;
+        ret = (ret * binomial(nn, kk, p)%p);
+    }
+    return ret;
+}
