@@ -89,3 +89,9 @@ int simplex()
     }
 }
 } // namespace simplex
+
+/* Usage
+To maximize p = -2x + 3y
+Constraints: x+3y <=40, 2x+4y >=10, x>=0, y>=0 // Make sure that RHS >=0
+n=2,m=2, matrix[ [2 -3 1 0 0], [1 3 0 1 0], [2 4 0 0 -1] ] c = [ [0][4][10]]
+*/
